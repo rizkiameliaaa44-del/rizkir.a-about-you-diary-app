@@ -10,6 +10,7 @@
 <body class="light-mode"> <header class="header">
         <div class="logo-container">
             <div class="logo-image" style="background-image: url('the1975logo.jpg');">
+                
             </div>
         </div>
 
@@ -35,7 +36,8 @@
                 </div>
                 
                 <a href="login.html">Log in</a>
-                <a href="login.html">Log out</a> </div>
+                <a href="login.html">Log out</a>
+            </div>
         </div>
     </header>
 
@@ -61,7 +63,7 @@
             <section id="beranda" class="content-section active">
                 <div class="beranda-content">
                     <div class="image-placeholder beranda-image" style="background-image: url('the1975.jpg');">
-                        
+                      
                     </div>
                     <p class="description-text">
                         The 1975 adalah band asal Manchester, Inggris yang terbentuk pada tahun 2002. Grup ini terdiri dari Matty Healy, Adam Hann, Ross MacDonald, dan George Daniel.
@@ -106,14 +108,14 @@
                 </p>
                 <div class="video-gallery">
                     <div class="video-player-container">
-                        <p class="video-label"></p>
+                        <p class="video-label">video1.mp4</p>
                         <video controls style="width: 100%; height: 100%; object-fit: cover;">
                             <source src="video1.mp4" type="video/mp4">
                             Your browser does not support the video element.
                         </video>
                     </div>
                     <div class="video-player-container">
-                        <p class="video-label"></p>
+                        <p class="video-label">video2.mp4</p>
                         <video controls style="width: 100%; height: 100%; object-fit: cover;">
                             <source src="video2.mp4" type="video/mp4">
                             Your browser does not support the video element.
@@ -128,6 +130,7 @@
                     
                     <div class="profile-header">
                         <div class="profile-picture" style="background-image: url('fotoku.jpg');">
+                            
                         </div>
                         <p class="account-info-header">Profil Pengguna Saat Ini</p>
                     </div>
@@ -138,11 +141,11 @@
                     </div>
                     <div class="detail-group">
                         <p class="detail-label">Status:</p>
-                        <p class="detail-value">Active</p>
+                        <p class="detail-value">active</p>
                     </div>
                     <div class="detail-group">
                         <p class="detail-label">Tanggal Bergabung:</p>
-                        <p class="detail-value">22/10/2025</p>
+                        <p class="detail-value">22/20/2025</p>
                     </div>
                     
                     <p class="edit-link">Untuk mengubah detail, silakan hubungi admin.</p>
@@ -159,7 +162,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const navItems = document.querySelectorAll('.nav-item');
-            const dropdownNavItems = document.querySelectorAll('.dropdown-nav-item'); // Tautan Account
+            const dropdownNavItems = document.querySelectorAll('.dropdown-nav-item');
             const contentSections = document.querySelectorAll('.content-section');
             const profileContainer = document.querySelector('.profile-menu-container');
             const dropdownMenu = document.querySelector('.dropdown-menu');
@@ -171,18 +174,15 @@
 
             // --- FUNGSI NAVIGASI DAN GANTI KONTEN ---
             const showContent = (contentId) => {
-                // Sembunyikan semua konten
                 contentSections.forEach(section => {
                     section.classList.add('hidden');
                     section.classList.remove('active');
                 });
-                // Tampilkan konten yang dipilih
                 const activeSection = document.getElementById(contentId);
                 if (activeSection) {
                     activeSection.classList.remove('hidden');
                     activeSection.classList.add('active');
                 }
-                // Update kelas aktif sidebar
                 navItems.forEach(item => {
                     item.classList.remove('active');
                     if (item.getAttribute('data-content') === contentId) {
@@ -206,7 +206,6 @@
                     e.preventDefault();
                     const contentId = item.getAttribute('data-content');
                     showContent(contentId);
-                    // Tutup dropdown setelah klik
                     dropdownMenu.classList.remove('show');
                     modeOptions.classList.remove('show-sub');
                 });
@@ -245,7 +244,6 @@
                     body.classList.add('light-mode');
                     localStorage.setItem('theme', 'light');
                 }
-                // Tutup menu setelah ganti mode
                 dropdownMenu.classList.remove('show');
                 modeOptions.classList.remove('show-sub');
             };
