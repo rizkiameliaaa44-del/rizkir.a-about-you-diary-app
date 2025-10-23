@@ -200,11 +200,34 @@ body {
     min-width: 0;
 }
 
+/* ========================================================== */
+/* --- ANIMASI MASUK KONTEN (FADE-IN & SLIDE UP) --- */
+/* ========================================================== */
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .content-section.hidden { display: none; }
+
+/* Terapkan animasi saat section aktif */
+.content-section.active {
+    animation: slideInUp 0.6s ease-out forwards;
+}
+
+/* ========================================================== */
+/* --- Konten Styling (Termasuk Perbaikan Foto Beranda) --- */
+/* ========================================================== */
 
 /* Beranda Content */
 .beranda-content { max-width: 700px; }
-.beranda-image { width: 100%; height: 350px; margin-bottom: 25px; }
 .description-text {
     line-height: 1.8; margin-bottom: 15px;
     color: var(--text-color); font-size: 1.05em; text-align: justify;
@@ -337,6 +360,17 @@ body {
     color: #888; font-size: 0.9em; font-weight: bold;
 }
 
+/* PERBAIKAN FOTO BERANDA: Agar tidak terpotong */
+.beranda-image {
+    width: 100%; 
+    height: 350px; /* Tinggi default desktop */
+    margin-bottom: 25px;
+    background-size: contain; 
+    background-repeat: no-repeat;
+    /* Tambahkan transition/opacity untuk animasi sub-elemen,
+       namun kita hanya mengandalkan animasi .content-section.active */
+}
+
 /* Credit Footer */
 .credit-footer {
     width: 100%;
@@ -368,7 +402,7 @@ body {
     .dashboard { padding: 15px; } /* Padding dashboard dikurangi */
     
     /* Galeri Konten */
-    .beranda-image { height: 250px; }
+    .beranda-image { height: 250px; } /* Disesuaikan lebih pendek untuk tablet */
     .video-gallery { 
         grid-template-columns: 1fr; /* Video menjadi 1 kolom */
         max-width: 450px;
@@ -381,38 +415,39 @@ body {
 
 /* Penyesuaian untuk Layar Mobile Kecil (Max 576px) */
 @media (max-width: 576px) {
-    /* Header: Memaksa Header menjadi 1 baris */
+    /* Header: Memaksa Header menjadi 1 baris, MENGECILKAN TULISAN */
     .header { 
         padding: 10px; 
         height: 60px;
     }
     .logo-container, .profile-menu-container { flex-basis: auto; }
     .title-container { 
-        font-size: 1.1em; /* Judul sangat dikecilkan */
         margin: 0 5px;
     }
-    .header-title { font-size: 1.1em; } /* Judul di header dikecilkan */
-    .logo-image { width: 40px; height: 40px; }
-    .profile-icon { font-size: 1.2em; }
-    .icon-headphone .fa-headphones, .icon-wing { font-size: 1em; }
+    .header-title { font-size: 1.1em; } 
+    
+    /* LOGO DAN ICON TETAP BERUKURAN DECENT */
+    .logo-image { width: 50px; height: 50px; }
+    .profile-icon { font-size: 1.5em; } 
+    .icon-headphone .fa-headphones, .icon-wing { font-size: 1.2em; } 
 
-    /* Layout Utama: Sidebar dan Dashboard (TETAP FLEX ROW) */
+    /* Layout Utama: Sidebar dan Dashboard (TETAP ROW) */
     .main-content {
-        flex-direction: row; /* Tetap berdampingan */
+        flex-direction: row; 
     }
 
     /* Sidebar: Dibuat sangat ramping */
     .sidebar {
-        width: 100px; /* Sidebar sangat ramping */
+        width: 80px; /* Sidebar sangat ramping */
         padding-top: 10px;
     }
     .nav-item {
-        padding: 10px 5px;
-        font-size: 0.7em; /* Text sangat kecil */
-        white-space: nowrap; /* Mencegah teks patah */
+        padding: 8px 3px;
+        font-size: 0.65em; /* Text sangat kecil */
+        white-space: nowrap; 
     }
     .nav-item i { 
-        margin-right: 3px; 
+        margin-right: 0; /* Menghilangkan margin ikon */
         font-size: 0.9em;
     }
 
@@ -421,20 +456,23 @@ body {
         padding: 10px;
     }
 
-    /* Konten: Dikecilkan */
+    /* Konten: Dikecilkan Teksnya Saja */
     .quote-text { font-size: 1em; }
     .description-text { font-size: 0.85em; }
-    .beranda-image { height: 180px; }
     
-    /* Foto Gallery */
+    /* FOTO BERANDA: DITINGGIKAN (300px) */
+    .beranda-image { height: 300px; } 
+    
+    /* FOTO GALLERY: JUMLAH KOLOM DIKURANGI AGAR FOTO TETAP BESAR */
     .photo-gallery {
-        grid-template-columns: 1fr 1fr; /* Hanya 2 kolom di HP */
+        grid-template-columns: 1fr 1fr; 
+        gap: 8px; 
     }
 
-    /* Konten Akun */
+    /* KONTEN AKUN: FOTO TETAP DECENT */
     .profile-picture {
-        width: 60px;
-        height: 60px;
+        width: 70px; 
+        height: 70px;
         margin-right: 10px;
     }
     .account-info-header { font-size: 1em; }
