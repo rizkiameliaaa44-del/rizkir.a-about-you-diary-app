@@ -1,0 +1,361 @@
+/* --- CSS Variables for Theme Management --- */
+:root {
+    /* Light Mode (Default) */
+    --bg-color: #fff;
+    --text-color: #333;
+    --header-bg: #fff;
+    --header-text: #000;
+    --sidebar-bg: #f7f7f7;
+    --sidebar-border: #eee;
+    --nav-item-hover-bg: #ebebeb;
+    --nav-item-active-bg: #eee;
+    --separator-color: #eee;
+    --quote-border: #ccc;
+    --placeholder-bg: #eee;
+    --dropdown-bg: #fff;
+    --dropdown-border: #eee;
+    --dropdown-hover-bg: #f7f7f7;
+    --credit-color: #888;
+}
+
+/* Dark Mode Overrides */
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-bg: #111;
+    --header-text: #fff;
+    --sidebar-bg: #222;
+    --sidebar-border: #333;
+    --nav-item-hover-bg: #333;
+    --nav-item-active-bg: #3a3a3a;
+    --separator-color: #333;
+    --quote-border: #555;
+    --placeholder-bg: #333;
+    --dropdown-bg: #111;
+    --dropdown-border: #333;
+    --dropdown-hover-bg: #333;
+    --credit-color: #aaa;
+}
+
+
+/* --- General Reset and Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--header-bg);
+    height: 100px;
+}
+
+/* Logo */
+.logo-container { flex-basis: 200px; display: flex; align-items: center; }
+.logo-image {
+    width: 70px; height: 70px;
+    border: 2px solid var(--header-text);
+    border-radius: 50%;
+    background-size: cover; background-position: center;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 0.8em; color: var(--text-color);
+}
+
+/* Title */
+.title-container { display: flex; align-items: center; justify-content: center; flex-grow: 1; }
+.header-title {
+    /* Font Times New Roman, Bold */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.2em; font-weight: 700;
+    color: var(--header-text);
+    margin: 0 15px;
+}
+.icon-headphone .fa-headphones, .icon-wing {
+    font-size: 1.8em; color: var(--text-color);
+}
+
+/* Profile Menu (Dropdown) */
+.profile-menu-container {
+    position: relative; flex-basis: 200px;
+    display: flex; flex-direction: column; align-items: flex-end;
+    cursor: pointer; padding-right: 5px;
+}
+.profile-icon { font-size: 2em; color: var(--header-text); margin-bottom: 5px; }
+
+.dropdown-menu {
+    display: none; position: absolute;
+    top: 100%; right: 0;
+    background-color: var(--dropdown-bg);
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border: 1px solid var(--dropdown-border);
+}
+
+.dropdown-menu.show { display: flex; flex-direction: column; }
+
+.dropdown-menu a {
+    color: var(--text-color); padding: 10px 15px;
+    text-decoration: none; font-size: 0.9em;
+    border-bottom: 1px solid var(--dropdown-border);
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--dropdown-hover-bg);
+    color: var(--header-text);
+}
+
+/* Settings Sub-Menu */
+.settings-option { position: relative; }
+.settings-option > a { 
+    display: block;
+    border-bottom: 1px solid var(--dropdown-border);
+}
+
+.mode-options {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: -120px; 
+    background-color: var(--dropdown-bg);
+    min-width: 120px;
+    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 11;
+    border: 1px solid var(--dropdown-border);
+}
+
+.mode-options.show-sub {
+    display: flex;
+    flex-direction: column;
+}
+
+.mode-options a {
+    border: none;
+    padding: 8px 10px;
+    font-size: 0.85em;
+}
+
+/* Horizontal Separator */
+.separator { height: 2px; background-color: var(--separator-color); }
+
+/* Main Content Layout (Sidebar + Dashboard) */
+.main-content {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 200px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--sidebar-border);
+    padding-top: 20px;
+    flex-shrink: 0;
+}
+
+.nav-item {
+    display: flex; align-items: center;
+    padding: 15px 20px; text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1em; font-weight: 400;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-item i { margin-right: 10px; font-size: 1.2em; }
+
+.nav-item:hover {
+    background-color: var(--nav-item-hover-bg);
+    color: var(--header-text);
+}
+
+.nav-item.active {
+    color: var(--header-text);
+    font-weight: 600;
+    background-color: var(--nav-item-active-bg);
+}
+
+/* Dashboard (Main Content Area) */
+.dashboard {
+    flex-grow: 1; padding: 30px;
+    background-color: var(--bg-color);
+    min-width: 0;
+}
+
+.content-section.hidden { display: none; }
+
+/* Beranda Content */
+.beranda-content { max-width: 700px; }
+.beranda-image { width: 100%; height: 350px; margin-bottom: 25px; }
+.description-text {
+    line-height: 1.8; margin-bottom: 15px;
+    color: var(--text-color); font-size: 1.05em; text-align: justify;
+}
+
+/* Quote Text */
+.quote-text {
+    font-size: 1.3em; font-style: italic;
+    color: var(--text-color); margin-bottom: 30px;
+    border-left: 3px solid var(--quote-border);
+    padding-left: 15px;
+}
+
+/* Photo Gallery & Zoom Effect */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px; max-width: 1000px;
+}
+
+.gallery-item {
+    aspect-ratio: 1 / 1; width: 100%;
+    overflow: hidden; 
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.zoom-effect {
+    background-size: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.zoom-effect:hover {
+    transform: scale(1.03); /* Sedikit ngezoom (3%) */
+}
+
+
+/* Video Gallery */
+.video-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 kolom video */
+    gap: 20px;
+    max-width: 900px;
+}
+.video-player-container {
+    aspect-ratio: 16 / 9;
+    background-color: var(--placeholder-bg);
+    position: relative;
+}
+.video-label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+/* --- Account Content Styling --- */
+.section-title {
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--header-text);
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Styling Foto Profil */
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--separator-color);
+    max-width: 400px;
+}
+
+.profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Membuat bentuk lingkaran */
+    background-color: var(--placeholder-bg);
+    background-size: cover;
+    background-position: center;
+    border: 3px solid var(--header-text); 
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7em;
+    color: #888;
+    flex-shrink: 0; /* Pastikan tidak menyusut */
+}
+
+.account-info-header {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.detail-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 400px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--separator-color);
+}
+.detail-label {
+    font-weight: 400;
+    color: var(--text-color);
+}
+.detail-value {
+    font-weight: 600;
+    color: var(--header-text);
+}
+.edit-link {
+    margin-top: 25px;
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* General Placeholder/Image Styling */
+.image-placeholder {
+    background-color: var(--placeholder-bg);
+    background-position: center;
+    border: 1px solid var(--sidebar-border);
+    display: flex; justify-content: center; align-items: center;
+    color: #888; font-size: 0.9em; font-weight: bold;
+}
+
+/* Credit Footer */
+.credit-footer {
+    width: 100%;
+    text-align: right;
+    padding: 10px 20px;
+    font-size: 0.8em;
+    color: var(--credit-color);
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--separator-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .header { height: 80px; }
+    .header-title { font-size: 1.8em; }
+    .sidebar { width: 150px; }
+    .dashboard { padding: 20px; }
+    .profile-menu-container { flex-basis: 150px; }
+    .mode-options { left: -120px; }
+    .video-gallery { grid-template-columns: 1fr; } 
+    .detail-group, .account-info-header, .profile-header { max-width: 100%; }
+}

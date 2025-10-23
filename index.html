@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About You Diary</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="light-mode"> <header class="header">
+        <div class="logo-container">
+            <div class="logo-image" style="background-image: url('the1975logo.jpg');">
+            </div>
+        </div>
+
+        <div class="title-container">
+            <span class="icon-headphone"><i class="fa-solid fa-headphones"></i></span>
+            <h1 class="header-title">Welcome to the "About You" diary</h1>
+            <span class="icon-wing">🪽</span>
+        </div>
+
+        <div class="profile-menu-container">
+            <div class="profile-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="dropdown-menu">
+                <a href="#account" class="dropdown-nav-item" data-content="account">Account</a>
+                
+                <div class="settings-option">
+                    <a href="#">Settings</a>
+                    <div class="mode-options">
+                        <a href="#" id="light-mode-btn">Mode Terang</a>
+                        <a href="#" id="dark-mode-btn">Mode Gelap</a>
+                    </div>
+                </div>
+                
+                <a href="login.html">Log in</a>
+                <a href="login.html">Log out</a> </div>
+        </div>
+    </header>
+
+    <div class="separator"></div>
+
+    <div class="main-content">
+        <nav class="sidebar">
+            <a href="#beranda" class="nav-item active" data-content="beranda">
+                <i class="fa-solid fa-house"></i> beranda
+            </a>
+            <a href="#photo" class="nav-item" data-content="photo">
+                <i class="fa-solid fa-camera"></i> Photo
+            </a>
+            <a href="#video" class="nav-item" data-content="video">
+                <i class="fa-solid fa-video"></i> Video
+            </a>
+            <a href="#audio" class="nav-item" data-content="audio">
+                <i class="fa-solid fa-volume-high"></i> Audio
+            </a>
+        </nav>
+
+        <main class="dashboard">
+            <section id="beranda" class="content-section active">
+                <div class="beranda-content">
+                    <div class="image-placeholder beranda-image" style="background-image: url('the1975.jpg');">
+                        
+                    </div>
+                    <p class="description-text">
+                        The 1975 adalah band asal Manchester, Inggris yang terbentuk pada tahun 2002. Grup ini terdiri dari Matty Healy, Adam Hann, Ross MacDonald, dan George Daniel.
+                    </p>
+                    <p class="description-text">
+                        Musik mereka dikenal karena perpaduan gaya pop, rock, dan elektronik dengan lirik yang penuh makna emosional dan reflektif.
+                    </p>
+                    <p class="description-text">
+                        Salah satu album terkenalnya, "About You", menampilkan nuansa nostalgia dan melankolis yang menjadi ciri khas band ini — menceritakan tentang kenangan, cinta, dan identitas diri.
+                    </p>
+                </div>
+            </section>
+
+            <section id="photo" class="content-section hidden">
+                <p class="quote-text">
+                    "beberapa manusia kehilangan karena ragu menyatakan, beberapa lagi kehilangan justru karena berani mengungkapkan."
+                </p>
+                <div class="photo-gallery">
+                    <div class="image-placeholder gallery-item zoom-effect" style="background-image: url('photo1.jpg');"></div>
+                    <div class="image-placeholder gallery-item zoom-effect" style="background-image: url('photo2.jpg');"></div>
+                    <div class="image-placeholder gallery-item zoom-effect" style="background-image: url('photo3.jpg');"></div>
+                    <div class="image-placeholder gallery-item zoom-effect" style="background-image: url('photo4.png');"></div>
+                    <div class="image-placeholder gallery-item zoom-effect" style="background-image: url('photo5.jpg');"></div>
+                </div>
+            </section>
+
+            <section id="audio" class="content-section hidden">
+                <p class="quote-text">
+                    "lantas mana yang lebih dingin, hujan disertai angin atau harapan yang hanya sebatas ingin."
+                </p>
+                <div class="audio-player-container">
+                    <audio controls style="width: 100%;">
+                        <source src="audio.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </section>
+
+            <section id="video" class="content-section hidden">
+                <p class="quote-text">
+                    "kenapa setelah dekat sekali, manusia harus asing?"
+                </p>
+                <div class="video-gallery">
+                    <div class="video-player-container">
+                        <p class="video-label"></p>
+                        <video controls style="width: 100%; height: 100%; object-fit: cover;">
+                            <source src="video1.mp4" type="video/mp4">
+                            Your browser does not support the video element.
+                        </video>
+                    </div>
+                    <div class="video-player-container">
+                        <p class="video-label"></p>
+                        <video controls style="width: 100%; height: 100%; object-fit: cover;">
+                            <source src="video2.mp4" type="video/mp4">
+                            Your browser does not support the video element.
+                        </video>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="account" class="content-section hidden">
+                <div class="account-content">
+                    <h2 class="section-title">Informasi Akun</h2>
+                    
+                    <div class="profile-header">
+                        <div class="profile-picture" style="background-image: url('fotoku.jpg');">
+                        </div>
+                        <p class="account-info-header">Profil Pengguna Saat Ini</p>
+                    </div>
+                    
+                    <div class="detail-group">
+                        <p class="detail-label">Nama Pengguna:</p>
+                        <p class="detail-value">Rizki Rahmawati Amelia</p>
+                    </div>
+                    <div class="detail-group">
+                        <p class="detail-label">Status:</p>
+                        <p class="detail-value">Active</p>
+                    </div>
+                    <div class="detail-group">
+                        <p class="detail-label">Tanggal Bergabung:</p>
+                        <p class="detail-value">22/10/2025</p>
+                    </div>
+                    
+                    <p class="edit-link">Untuk mengubah detail, silakan hubungi admin.</p>
+                </div>
+            </section>
+            
+        </main>
+    </div>
+
+    <footer class="credit-footer">
+        Rizki Rahmawati Amelia - XI RPL 2
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navItems = document.querySelectorAll('.nav-item');
+            const dropdownNavItems = document.querySelectorAll('.dropdown-nav-item'); // Tautan Account
+            const contentSections = document.querySelectorAll('.content-section');
+            const profileContainer = document.querySelector('.profile-menu-container');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            const body = document.body;
+            const lightModeBtn = document.getElementById('light-mode-btn');
+            const darkModeBtn = document.getElementById('dark-mode-btn');
+            const settingsOption = document.querySelector('.settings-option > a');
+            const modeOptions = document.querySelector('.mode-options');
+
+            // --- FUNGSI NAVIGASI DAN GANTI KONTEN ---
+            const showContent = (contentId) => {
+                // Sembunyikan semua konten
+                contentSections.forEach(section => {
+                    section.classList.add('hidden');
+                    section.classList.remove('active');
+                });
+                // Tampilkan konten yang dipilih
+                const activeSection = document.getElementById(contentId);
+                if (activeSection) {
+                    activeSection.classList.remove('hidden');
+                    activeSection.classList.add('active');
+                }
+                // Update kelas aktif sidebar
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('data-content') === contentId) {
+                        item.classList.add('active');
+                    }
+                });
+            };
+
+            // Event listener untuk navigasi sidebar
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const contentId = item.getAttribute('data-content');
+                    showContent(contentId);
+                });
+            });
+            
+            // Event listener untuk tautan navigasi dropdown (Account)
+            dropdownNavItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const contentId = item.getAttribute('data-content');
+                    showContent(contentId);
+                    // Tutup dropdown setelah klik
+                    dropdownMenu.classList.remove('show');
+                    modeOptions.classList.remove('show-sub');
+                });
+            });
+
+
+            // --- FUNGSI DROPDOWN MENU PROFIL ---
+            profileContainer.addEventListener('click', (e) => {
+                dropdownMenu.classList.toggle('show');
+                modeOptions.classList.remove('show-sub');
+                e.stopPropagation();
+            });
+
+            // Event listener untuk tombol Settings (membuka sub-menu mode)
+            settingsOption.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                modeOptions.classList.toggle('show-sub');
+            });
+
+            // Tutup semua menu jika mengklik di luar
+            window.addEventListener('click', () => {
+                dropdownMenu.classList.remove('show');
+                modeOptions.classList.remove('show-sub');
+            });
+
+
+            // --- FUNGSI DARK/LIGHT MODE ---
+            const switchMode = (mode) => {
+                if (mode === 'dark') {
+                    body.classList.remove('light-mode');
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.classList.remove('dark-mode');
+                    body.classList.add('light-mode');
+                    localStorage.setItem('theme', 'light');
+                }
+                // Tutup menu setelah ganti mode
+                dropdownMenu.classList.remove('show');
+                modeOptions.classList.remove('show-sub');
+            };
+
+            lightModeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchMode('light');
+            });
+            darkModeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchMode('dark');
+            });
+
+            // Cek preferensi tema di localStorage saat memuat halaman
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                switchMode('dark');
+            }
+        });
+    </script>
+
+</body>
+</html>
