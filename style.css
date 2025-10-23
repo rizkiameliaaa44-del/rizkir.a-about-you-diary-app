@@ -295,7 +295,7 @@ body {
     align-items: center;
     font-size: 0.7em;
     color: #888;
-    flex-shrink: 0; /* Pastikan tidak menyusut */
+    flex-shrink: 0;
 }
 
 .account-info-header {
@@ -348,14 +348,109 @@ body {
     border-top: 1px solid var(--separator-color);
 }
 
-/* Responsive Adjustments */
+/* ========================================================== */
+/* --- RESPONSIVE DESIGN (MOBILE/TABLET) --- */
+/* ========================================================== */
+
+/* Penyesuaian untuk Layar Tablet dan Laptop Kecil (Max 992px) */
 @media (max-width: 992px) {
-    .header { height: 80px; }
-    .header-title { font-size: 1.8em; }
+    /* Header */
+    .header { height: 80px; padding: 10px 20px; }
+    .header-title { font-size: 1.8em; margin: 0 10px; }
+    .logo-image { width: 50px; height: 50px; }
+    .profile-icon { font-size: 1.5em; }
+    .icon-headphone .fa-headphones, .icon-wing { font-size: 1.4em; }
+
+    /* Sidebar dan Dashboard */
     .sidebar { width: 150px; }
+    .nav-item { padding: 12px 15px; font-size: 1em; }
     .dashboard { padding: 20px; }
-    .profile-menu-container { flex-basis: 150px; }
-    .mode-options { left: -120px; }
-    .video-gallery { grid-template-columns: 1fr; } 
-    .detail-group, .account-info-header, .profile-header { max-width: 100%; }
+    
+    /* Galeri Video */
+    .video-gallery { 
+        grid-template-columns: 1fr; /* Video menjadi 1 kolom */
+        max-width: 500px;
+    }
+}
+
+/* Penyesuaian untuk Layar Mobile (Max 768px) */
+@media (max-width: 768px) {
+    
+    /* Main Layout: Sidebar dan Dashboard menjadi Vertikal */
+    .main-content {
+        flex-direction: column; 
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--sidebar-border);
+        padding-top: 10px;
+        /* Sidebar diubah menjadi horizontal untuk navigasi mobile */
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .nav-item {
+        /* Mengubah tata letak item navigasi agar lebih ringkas */
+        flex-direction: column; 
+        padding: 8px 5px;
+        font-size: 0.75em;
+        text-align: center;
+        flex-grow: 1;
+    }
+    .nav-item i { 
+        margin-right: 0; 
+        margin-bottom: 5px; 
+        font-size: 1.2em;
+    }
+
+    /* Header */
+    .header { 
+        flex-wrap: wrap; 
+        height: auto; 
+        min-height: 80px;
+    }
+    .title-container { 
+        order: 3; 
+        width: 100%; 
+        padding-top: 10px;
+    }
+    .header-title { font-size: 1.5em; }
+
+    /* Dropdown Profil */
+    .profile-menu-container {
+        order: 2; 
+    }
+
+    /* Dashboard */
+    .dashboard {
+        padding: 15px;
+    }
+
+    /* Quote dan Teks */
+    .quote-text {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+    }
+    .description-text { font-size: 0.95em; }
+    
+    /* Foto Gallery */
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+        gap: 10px;
+    }
+
+    /* Konten Akun */
+    .detail-group, .profile-header {
+        max-width: 100%;
+        font-size: 0.95em;
+    }
+    
+    /* Credit Footer */
+    .credit-footer {
+        text-align: center;
+        font-size: 0.75em;
+    }
 }
